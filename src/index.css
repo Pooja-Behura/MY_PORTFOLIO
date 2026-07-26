@@ -1,6 +1,6 @@
-/* ============================================================
+﻿/* ============================================================
    DESIGN TOKENS
-   Theme: "Paper & Ink" — a light, professional page (paper-white,
+   Theme: "Paper & Ink" â€” a light, professional page (paper-white,
    ink-navy text) with one deliberate dark-navy block (hero + nav)
    for contrast, weight, and a confident opening moment.
    ============================================================ */
@@ -75,6 +75,10 @@ html {
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+*  {
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -236,3 +240,4 @@ img, svg {
   background: var(--border);
   border-radius: 10px;
 }
+
