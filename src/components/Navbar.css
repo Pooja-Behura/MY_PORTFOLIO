@@ -121,7 +121,7 @@
 @media (max-width: 860px) {
   .navbar__links--desktop,
   .navbar__cta {
-    display: none|important;
+    display: none!important;
   }
   .navbar__toggle {
     display: flex;
