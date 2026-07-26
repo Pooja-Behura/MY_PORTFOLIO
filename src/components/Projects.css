@@ -1,0 +1,106 @@
+.projects__list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+}
+
+.project-row {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 32px;
+  padding: 44px 0;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.4s var(--ease);
+}
+
+.project-row:hover {
+  background: linear-gradient(90deg, var(--accent-gold-soft), transparent 60%);
+}
+
+.project-row__id {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--accent-teal);
+  padding-top: 4px;
+}
+
+.project-row__body h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+
+.project-row__desc {
+  color: var(--text-secondary);
+  font-size: 15px;
+  max-width: 640px;
+  margin-bottom: 16px;
+}
+
+.project-row__points {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.project-row__points li {
+  position: relative;
+  padding-left: 20px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  max-width: 640px;
+}
+
+.project-row__points li::before {
+  content: '›';
+  position: absolute;
+  left: 0;
+  color: var(--accent-gold);
+}
+
+.project-row__stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.project-row__stack span {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted);
+  border: 1px solid var(--border-soft);
+  padding: 5px 10px;
+  border-radius: var(--radius);
+}
+
+.project-row__live {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--accent-gold);
+  border: 1px solid var(--accent-gold);
+  border-radius: var(--radius);
+  padding: 10px 18px;
+  transition: all 0.3s var(--ease);
+}
+
+.project-row__live:hover {
+  background: var(--accent-gold);
+  color: var(--bg);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 640px) {
+  .project-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
