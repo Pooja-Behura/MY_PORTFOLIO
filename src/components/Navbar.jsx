@@ -19,10 +19,20 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : ''
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [open])
+
+  const closeMenu = () => setOpen(false)
+
   return (
-    <header className={`navbar ${scrolled ? 'navbar--scrolled' : 'theme-dark'}`}>
+    <header className={`navbar ${scrolled || open ? 'navbar--scrolled' : 'theme-dark'}`}>
       <div className="container navbar__inner">
-        <a href="#top" className="navbar__brand">
+        <a href="#top" className="navbar__brand" onClick={closeMenu}>
           <span className="navbar__brand-mark">PB</span>
           <span className="navbar__brand-text">Pooja Behura</span>
         </a>
@@ -40,6 +50,7 @@ export default function Navbar() {
         </a>
 
         <button
+          type="button"
           className={`navbar__toggle ${open ? 'is-open' : ''}`}
           aria-label="Toggle navigation menu"
           aria-expanded={open}
@@ -51,13 +62,13 @@ export default function Navbar() {
         </button>
       </div>
 
-      <nav className={`navbar__links navbar__links--mobile ${open ? 'is-open' : ''}`}>
+      <nav className={`navbar__links--mobile ${open ? 'is-open' : ''}`}>
         {LINKS.map((link) => (
-          <a key={link.href} href={link.href} onClick={() => setOpen(false)}>
+          <a key={link.href} href={link.href} onClick={closeMenu}>
             {link.label}
           </a>
         ))}
-        <a href="#contact" className="btn btn-primary" onClick={() => setOpen(false)}>
+        <a href="#contact" className="btn btn-primary" onClick={closeMenu}>
           Get in touch
         </a>
       </nav>
